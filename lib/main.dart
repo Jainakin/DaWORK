@@ -1,6 +1,8 @@
 import 'package:dawork/configs/theme.dart';
 import 'package:dawork/view/login-screen/login_screen.dart';
+import 'package:dawork/view/onboard-details/onboard_details_screen.dart';
 import 'package:dawork/view/otp-screen/otp_screen.dart';
+import 'package:dawork/view/profile-screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'DaWORK',
       theme: themeData,
-      home: const LoginScreen(),
+      home: LoginScreen(),
     );
   }
 }

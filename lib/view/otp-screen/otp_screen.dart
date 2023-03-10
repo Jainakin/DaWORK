@@ -1,3 +1,5 @@
+import 'package:dawork/constants.dart';
+import 'package:dawork/view/onboard-details/onboard_details_screen.dart';
 import 'package:dawork/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -33,7 +35,7 @@ class OtpScreen extends StatelessWidget {
           top: true,
           bottom: true,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -107,7 +109,9 @@ class OtpScreen extends StatelessWidget {
                 const Spacer(),
                 CustomButton(
                   buttonText: "Next",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const OnboardDetailsScreen()));
+                  },
                 ),
               ],
             ),

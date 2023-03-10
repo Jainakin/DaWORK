@@ -1,6 +1,8 @@
 import 'package:country_picker/country_picker.dart';
+import 'package:dawork/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_form_field.dart';
 import '../otp-screen/otp_screen.dart';
@@ -13,9 +15,9 @@ class LoginScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     double safePaddingTop = MediaQuery.of(context).padding.top;
-    final phoneController = TextEditingController();
     final formKey = GlobalKey<FormState>();
     String countryCode = "91";
+    final phoneController = TextEditingController();
     final phoneValidator = MultiValidator([
       RequiredValidator(errorText: 'Phone number is required'),
       MinLengthValidator(10, errorText: 'Enter Valid Phone Number'),
@@ -32,7 +34,7 @@ class LoginScreen extends StatelessWidget {
           children: [
             Container(
               color: Theme.of(context).focusColor,
-              padding: EdgeInsets.only(top: safePaddingTop + 60, bottom: 60),
+              padding: EdgeInsets.only(top: safePaddingTop + 60.0, bottom: 60.0),
               width: double.infinity,
               child: Center(
                 child: RichText(
@@ -61,13 +63,14 @@ class LoginScreen extends StatelessWidget {
             ),
             SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const SizedBox(height: 10.0),
                     const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 30.0),
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
                       child: Text(
                         "Your Everyday Gig\nSolution.",
                         textAlign: TextAlign.center,

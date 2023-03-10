@@ -37,26 +37,25 @@ class CustomButton extends StatelessWidget {
     return Container(
       margin: margin ??
           const EdgeInsets.only(
-            top: 25,
-            bottom: 25,
+            top: 25.0,
+            bottom: 25.0,
           ),
-      // alignment: Alignment.center,
       width: width ?? double.infinity,
       height: height ?? MediaQuery.of(context).size.width * 0.15,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           padding: padding,
-          primary: primaryColor ?? Theme.of(context).focusColor,
+          backgroundColor: primaryColor ?? Theme.of(context).focusColor,
           shadowColor: shadowColor,
           alignment: Alignment.center,
           side: BorderSide(
             color: borderColor ?? Colors.transparent,
-            width: 1,
+            width: 1.0,
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              borderRadius ?? 15,
+              borderRadius ?? 15.0,
             ),
           ),
         ),
