@@ -1,14 +1,16 @@
 import 'dart:io';
 
+import 'package:dawork/view/edit-profile/edit_profile_screen.dart';
 import 'package:dawork/widgets/custom_button.dart';
 import 'package:dawork/widgets/row_option.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../constants.dart';
+import '../personal-details/personal_details_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
-  ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -55,9 +57,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 10.0,
-              ),
+              // const SizedBox(
+              //   height: 10.0
+              // ),
               Center(
                 child: Stack(
                   children: [
@@ -85,19 +87,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         onTap: () {
                           pickImageFromGallery(context);
                         },
-                        child: AbsorbPointer(
-                          child: Container(
-                            height: 35.0,
-                            width: 35.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Theme.of(context).focusColor,
-                            ),
-                            child: const Icon(
-                              Icons.edit,
-                              size: 20,
-                              color: Colors.white,
-                            ),
+                        child: Container(
+                          height: 35.0,
+                          width: 35.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Theme.of(context).focusColor,
+                          ),
+                          child: const Icon(
+                            Icons.edit,
+                            size: 20,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -130,16 +130,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 buttonText: "Edit Profile",
                 margin: EdgeInsets.zero,
                 width: MediaQuery.of(context).size.width * 0.6,
-                height: MediaQuery.of(context).size.width * 0.12,
+                // height: MediaQuery.of(context).size.width * 0.12,
                 borderRadius: 50,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditProfileScreen(),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 40.0),
               const Divider(),
               RowOption(
                 icon: Icons.person,
-                text: "Personal Details",
-                onTap: () {},
+                text: "Account",
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const PersonalDetailsScreen()));
+                },
               ),
               RowOption(
                 icon: Icons.settings,
@@ -149,12 +158,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const Divider(),
               RowOption(
                 icon: Icons.info_outline_rounded,
-                text: "Information",
+                text: "Privacy",
                 onTap: () {},
               ),
               RowOption(
                 icon: Icons.logout,
-                text: "Logout",
+                text: "Sign out",
                 textColor: Colors.red,
                 onTap: () {},
               ),

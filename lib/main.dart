@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'DaWORK',
       theme: themeData,
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }

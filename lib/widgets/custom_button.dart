@@ -41,7 +41,7 @@ class CustomButton extends StatelessWidget {
             bottom: 25.0,
           ),
       width: width ?? double.infinity,
-      height: height ?? MediaQuery.of(context).size.width * 0.15,
+      // height: height ?? MediaQuery.of(context).size.width * 0.15,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
@@ -59,13 +59,16 @@ class CustomButton extends StatelessWidget {
             ),
           ),
         ),
-        child: Text(
-          buttonText,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                color: textColor ?? Colors.white,
-                fontSize: textSize,
-                fontWeight: fontWeight,
-              ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 18.0),
+          child: Text(
+            buttonText,
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: textColor ?? Colors.white,
+                  fontSize: textSize,
+                  fontWeight: fontWeight,
+                ),
+          ),
         ),
       ),
     );

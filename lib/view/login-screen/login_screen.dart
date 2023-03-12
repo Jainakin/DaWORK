@@ -218,7 +218,7 @@ class LoginScreen extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.transparent,
+                              backgroundColor: Colors.transparent,
                               shadowColor: Theme.of(context).primaryColor,
                               elevation: 0.0,
                               alignment: Alignment.center,
@@ -249,7 +249,7 @@ class LoginScreen extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.transparent,
+                              backgroundColor: Colors.transparent,
                               shadowColor: Theme.of(context).primaryColor,
                               elevation: 0.0,
                               alignment: Alignment.center,

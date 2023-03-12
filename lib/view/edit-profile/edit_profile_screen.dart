@@ -1,24 +1,23 @@
-import 'package:dawork/constants.dart';
-import 'package:dawork/view/profile-screen/profile_screen.dart';
-import 'package:dawork/widgets/custom_button.dart';
-import 'package:dawork/widgets/input_field_heading.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
+import '../../constants.dart';
+import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_form_field.dart';
+import '../../widgets/input_field_heading.dart';
 import '../../widgets/pick_gender.dart';
 
-class OnboardDetailsScreen extends StatefulWidget {
-  const OnboardDetailsScreen({Key? key}) : super(key: key);
+class EditProfileScreen extends StatefulWidget {
+  EditProfileScreen({Key? key}) : super(key: key);
 
   @override
-  State<OnboardDetailsScreen> createState() => _OnboardDetailsScreenState();
+  State<EditProfileScreen> createState() => _EditProfileScreenState();
 }
 
-class _OnboardDetailsScreenState extends State<OnboardDetailsScreen> {
+class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController firstName = TextEditingController();
   final TextEditingController lastName = TextEditingController();
-  String gender = "other";
+  String gender = "male";
   final TextEditingController phone = TextEditingController();
   final TextEditingController house = TextEditingController();
   final TextEditingController address1 = TextEditingController();
@@ -39,10 +38,10 @@ class _OnboardDetailsScreenState extends State<OnboardDetailsScreen> {
           color: Theme.of(context).hintColor, //change your color here
         ),
         title: Text(
-          "Log in",
+          "Edit",
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: SafeArea(
@@ -53,11 +52,11 @@ class _OnboardDetailsScreenState extends State<OnboardDetailsScreen> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const Center(
                   child: Text(
-                    "Let's get your details.",
+                    "Update your details",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 24.0,
@@ -69,7 +68,7 @@ class _OnboardDetailsScreenState extends State<OnboardDetailsScreen> {
                 const SizedBox(height: 3.0),
                 Center(
                   child: Text(
-                    "Fill in these details to set up your account",
+                    "Make changes to update your account",
                     style: Theme.of(context).textTheme.labelSmall!.copyWith(
                         letterSpacing: 0.7, fontSize: 11, height: 1.7),
                     textAlign: TextAlign.center,
@@ -238,17 +237,13 @@ class _OnboardDetailsScreenState extends State<OnboardDetailsScreen> {
                   width: double.infinity,
                 ),
                 CustomButton(
-                  buttonText: "Next",
+                  buttonText: "Save",
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ProfileScreen(),
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
                 ),
               ],
+
             ),
           ),
         ),
