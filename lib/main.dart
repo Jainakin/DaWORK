@@ -1,4 +1,6 @@
 import 'package:dawork/configs/theme.dart';
+import 'package:dawork/view/create-gig/create_gig_screen.dart';
+import 'package:dawork/view/home-screen/home_screen.dart';
 import 'package:dawork/view/login-screen/login_screen.dart';
 import 'package:dawork/view/onboard-details/onboard_details_screen.dart';
 import 'package:dawork/view/otp-screen/otp_screen.dart';

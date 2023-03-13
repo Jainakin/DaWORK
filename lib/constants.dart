@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const horizontalPadding = 15.0;
+const horizontalPadding = 16.0;
 
 const kTextStyle = TextStyle(
     color: Color(0xff243448),

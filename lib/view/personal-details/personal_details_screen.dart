@@ -33,6 +33,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
           top: true,
           bottom: true,
           child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +97,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: (MediaQuery.of(context).size.width - 100) / 3,
                         child: Align(
                           alignment: Alignment.topLeft,
@@ -131,7 +132,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: (MediaQuery.of(context).size.width - 100) / 3,
                         child: Align(
                           alignment: Alignment.topCenter,
@@ -178,7 +179,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: (MediaQuery.of(context).size.width - 100) / 3,
                         child: Align(
                           alignment: Alignment.topRight,
@@ -239,6 +240,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                 ),
                 const SizedBox(height: 15.0),
                 SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -291,6 +293,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
                 ),
                 const SizedBox(height: 15.0),
                 SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,

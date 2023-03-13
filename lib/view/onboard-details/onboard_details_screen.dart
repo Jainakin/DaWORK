@@ -1,4 +1,5 @@
 import 'package:dawork/constants.dart';
+import 'package:dawork/view/home-screen/home_screen.dart';
 import 'package:dawork/view/profile-screen/profile_screen.dart';
 import 'package:dawork/widgets/custom_button.dart';
 import 'package:dawork/widgets/input_field_heading.dart';
@@ -19,6 +20,7 @@ class _OnboardDetailsScreenState extends State<OnboardDetailsScreen> {
   final TextEditingController firstName = TextEditingController();
   final TextEditingController lastName = TextEditingController();
   String gender = "other";
+  String countryCode = "91";
   final TextEditingController phone = TextEditingController();
   final TextEditingController house = TextEditingController();
   final TextEditingController address1 = TextEditingController();
@@ -51,6 +53,7 @@ class _OnboardDetailsScreenState extends State<OnboardDetailsScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
           child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,16 +137,43 @@ class _OnboardDetailsScreenState extends State<OnboardDetailsScreen> {
                   ],
                 ),
                 const InputFieldHeading(text: "Phone Number"),
-                CustomTextFormField(
-                  controller: phone,
-                  keyboardType: TextInputType.phone,
-                  validator: MultiValidator([
-                    RequiredValidator(errorText: "Required Parameter"),
-                    MinLengthValidator(10, errorText: "Invalid Phone Number"),
-                    MaxLengthValidator(10, errorText: "Invalid Phone Number"),
-                  ]),
-                  hintText: "10 digit [0-9] phone number",
-                  width: double.infinity,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // width: 60.0,
+                      height: 50.0,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Text(
+                          "+$countryCode",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16.0),
+                    Expanded(
+                      child: CustomTextFormField(
+                        controller: phone,
+                        keyboardType: TextInputType.phone,
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: "Required Parameter"),
+                          MinLengthValidator(10,
+                              errorText: "Invalid Phone Number"),
+                          MaxLengthValidator(10,
+                              errorText: "Invalid Phone Number"),
+                        ]),
+                        hintText: "10 digit [0-9] phone number",
+                        width: double.infinity,
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 30.0, bottom: 10),
@@ -243,7 +273,7 @@ class _OnboardDetailsScreenState extends State<OnboardDetailsScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ProfileScreen(),
+                        builder: (context) => const HomeScreen(),
                       ),
                     );
                   },

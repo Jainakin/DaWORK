@@ -28,41 +28,42 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         top: false,
         bottom: true,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              color: Theme.of(context).focusColor,
-              padding: EdgeInsets.only(top: safePaddingTop + 60.0, bottom: 60.0),
-              width: double.infinity,
-              child: Center(
-                child: RichText(
-                  text: const TextSpan(
-                    text: "Da",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 72.0,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "TT Norms Pro",
-                    ),
-                    children: [
-                      TextSpan(
-                        text: "Work",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 72.0,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "TT Norms Pro",
-                        ),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                color: Theme.of(context).focusColor,
+                padding: EdgeInsets.only(top: safePaddingTop + 60.0, bottom: 60.0),
+                width: double.infinity,
+                child: Center(
+                  child: RichText(
+                    text: const TextSpan(
+                      text: "Da",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 72.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "TT Norms Pro",
                       ),
-                    ],
+                      children: [
+                        TextSpan(
+                          text: "Work",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 72.0,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "TT Norms Pro",
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            SingleChildScrollView(
-              child: Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -137,20 +138,23 @@ class LoginScreen extends StatelessWidget {
                               );
                             }),
                             child: Container(
-                              width: 60.0,
+                              // width: 60.0,
                               height: 50.0,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10.0),
                                 color: Theme.of(context).primaryColor,
                               ),
-                              child: Text(
-                                "+$countryCode",
-                                style: Theme.of(context).textTheme.bodySmall,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                                child: Text(
+                                  "+$countryCode",
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                ),
                               ),
                             ),
                           ),
-                          const SizedBox(width: 15.0),
+                          const SizedBox(width: 16.0),
                           Expanded(
                             child: CustomTextFormField(
                               controller: phoneController,
@@ -282,9 +286,9 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

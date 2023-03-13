@@ -82,7 +82,7 @@ class CustomMaterialButton extends StatelessWidget {
   final void Function()? onPressed;
   final String text;
   final String subText;
-  CustomMaterialButton(
+  const CustomMaterialButton(
       {this.twolines = true,
       this.text = "",
       required this.subText,
@@ -96,9 +96,13 @@ class CustomMaterialButton extends StatelessWidget {
       minWidth: width,
       height: height,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18.0),
-          side: const BorderSide(color: Color(0xffF0F0F0), width: 1)),
-      padding: const EdgeInsets.all(20),
+        borderRadius: BorderRadius.circular(18.0),
+        side: const BorderSide(
+          color: Color(0xffF0F0F0),
+          width: 1.0,
+        ),
+      ),
+      padding: const EdgeInsets.all(20.0),
       onPressed: onPressed,
       child: Row(
         children: [
@@ -107,7 +111,7 @@ class CustomMaterialButton extends StatelessWidget {
             color: Color(0xff292D32),
           ),
           SizedBox(
-            width: (twolines) ? 15 : 20,
+            width: (twolines) ? 15.0 : 20.0,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,18 +120,19 @@ class CustomMaterialButton extends StatelessWidget {
                 Text(text,
                     style: kHeaderStyle.copyWith(
                         fontWeight: FontWeight.w400,
-                        fontSize: 10,
+                        fontSize: 10.0,
                         color: Colors.black.withOpacity(0.6))),
               const SizedBox(
-                height: 5,
+                height: 5.0,
               ),
               Text(
                 subText,
                 style: kHeaderStyle.copyWith(
-                    color:
-                        twolines ? Colors.black : Colors.black.withOpacity(0.7),
-                    fontWeight: twolines ? FontWeight.w500 : FontWeight.w400,
-                    fontSize: 12),
+                  color:
+                      twolines ? Colors.black : Colors.black.withOpacity(0.7),
+                  fontWeight: twolines ? FontWeight.w500 : FontWeight.w400,
+                  fontSize: 12.0,
+                ),
               )
             ],
           )

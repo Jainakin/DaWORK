@@ -8,7 +8,7 @@ import '../../widgets/input_field_heading.dart';
 import '../../widgets/pick_gender.dart';
 
 class EditProfileScreen extends StatefulWidget {
-  EditProfileScreen({Key? key}) : super(key: key);
+  const EditProfileScreen({Key? key}) : super(key: key);
 
   @override
   State<EditProfileScreen> createState() => _EditProfileScreenState();
@@ -18,6 +18,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController firstName = TextEditingController();
   final TextEditingController lastName = TextEditingController();
   String gender = "male";
+  String countryCode = "91";
   final TextEditingController phone = TextEditingController();
   final TextEditingController house = TextEditingController();
   final TextEditingController address1 = TextEditingController();
@@ -40,8 +41,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         title: Text(
           "Edit",
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+                fontWeight: FontWeight.bold,
+              ),
         ),
       ),
       body: SafeArea(
@@ -50,6 +51,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
           child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -133,16 +135,43 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ],
                 ),
                 const InputFieldHeading(text: "Phone Number"),
-                CustomTextFormField(
-                  controller: phone,
-                  keyboardType: TextInputType.phone,
-                  validator: MultiValidator([
-                    RequiredValidator(errorText: "Required Parameter"),
-                    MinLengthValidator(10, errorText: "Invalid Phone Number"),
-                    MaxLengthValidator(10, errorText: "Invalid Phone Number"),
-                  ]),
-                  hintText: "10 digit [0-9] phone number",
-                  width: double.infinity,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // width: 60.0,
+                      height: 50.0,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Text(
+                          "+$countryCode",
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16.0),
+                    Expanded(
+                      child: CustomTextFormField(
+                        controller: phone,
+                        keyboardType: TextInputType.phone,
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: "Required Parameter"),
+                          MinLengthValidator(10,
+                              errorText: "Invalid Phone Number"),
+                          MaxLengthValidator(10,
+                              errorText: "Invalid Phone Number"),
+                        ]),
+                        hintText: "10 digit [0-9] phone number",
+                        width: double.infinity,
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 30.0, bottom: 10),
@@ -243,7 +272,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   },
                 ),
               ],
-
             ),
           ),
         ),

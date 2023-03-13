@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class RowOption extends StatelessWidget {
   RowOption({Key? key, required this.text, this.textColor = Colors.black, required this.icon, required this.onTap}) : super(key: key);
   final String text;
@@ -27,6 +28,7 @@ class RowOption extends StatelessWidget {
               child: Icon(
                 icon,
                 color: Theme.of(context).focusColor,
+                size: 20,
               ),
             ),
             const SizedBox(
