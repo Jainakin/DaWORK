@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           child: Padding(
             padding: EdgeInsets.only(
-                left: 16.0, right: 16.0, top: 16.0, bottom: isIOS ? 0.0 : 16.0),
+                left: 16.0, right: 16.0, top: 16.0, bottom: isIOS ?   0.0 : 16.0),
             child: GNav(
               tabBackgroundGradient: LinearGradient(
                 begin: Alignment.topRight,

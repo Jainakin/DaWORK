@@ -5,10 +5,12 @@ ThemeData themeData = ThemeData(
   primaryColor: const Color(0xffE5E5E5),
   colorScheme: ColorScheme.fromSwatch().copyWith(
     secondary: const Color(0xffFE724C),
+    // secondary: const Color(0xff5C0FC9),
     tertiary: const Color(0xff4A4A4A),
     error: Colors.red,
   ),
   focusColor: const Color(0xffFE724C), // instead of button color
+  // focusColor: const Color(0xff5C0FC9), // instead of button color
   indicatorColor: const Color(0xff9EA3A2),
   hintColor: const Color(0xff303030),
   highlightColor: const Color(0xff909BFF),
